@@ -13,7 +13,7 @@ int main(){
             cin>>A[i];
             s.insert(A[i]);
         }
-      /*/hojoborolo*/
+     
         for(auto it=s.begin();it!=s.end();it++){
             cout<<*it<<" ";
         }
