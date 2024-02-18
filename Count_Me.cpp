@@ -15,6 +15,7 @@ int main(){
         stringstream ss(sentence);
         map<string,int>mp;
         while(ss>>word){
+            //count
             mp[word]++;
             //frequency testing
             if(mp[word]>maxcounttrack){
