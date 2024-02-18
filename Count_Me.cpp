@@ -1,32 +1,37 @@
-#include <bits/stdc++.h> 
+#include<bits/stdc++.h>
 using namespace std;
 
-int main() { 
-int T; 
-cin >> T;
- cin.ignore();
- // ignore the newline character left in the input buffer after reading T
+int main(){
+    int t;
+    cin>>t;
+    cin.ignore();
+    while(t--){
+        string sentence;
+        getline(cin,sentence);
+        string word;
+        string ans;
+        int maxcounttrack=0;
 
-while (T--) {
- string sentence;
- getline(cin, sentence); 
-string word; 
-string ans; 
-int mx = 0; 
-stringstream ss(sentence);
- map<string, int> mp; 
-while (ss >> word) { 
-mp[word]++; 
-} 
-for (auto it = mp.begin();it != mp.end(); it++) {
- if (it->second > mx) { mx = it->second; ans = it->first; 
-} 
-else if (it->second == mx && it->first < ans) {
- continue;
- } 
-} 
-cout << ans << " " << mx << endl; 
-}
+        stringstream ss(sentence);
+        map<string,int>mp;
+        while(ss>>word){
+            mp[word]++;
+            if(mp[word]>maxcounttrack){
+                maxcounttrack=mp[word];
+                sentence=word;
+            }
+        }
+        for(auto it=mp.begin();it!=mp.end();it++){
+            if(it->second>maxcounttrack) {
+                maxcounttrack = it->second;
+                ans=it->first;
+            }
+            else if(it->second==maxcounttrack){
+                ans=it->first;
+                break;
+        }
+        }
 
-return 0;
+        cout<<sentence<<" "<<maxcounttrack<<endl;
+    }
  }
