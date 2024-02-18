@@ -17,7 +17,6 @@ int main(){
         while(ss>>word){
             //count
             mp[word]++;
-            //frequency testing
             if(mp[word]>maxcounttrack){
                 maxcounttrack=mp[word];
                 sentence=word;
