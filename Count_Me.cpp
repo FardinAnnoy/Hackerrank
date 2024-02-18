@@ -16,6 +16,7 @@ int main(){
         map<string,int>mp;
         while(ss>>word){
             mp[word]++;
+            //frequency testing
             if(mp[word]>maxcounttrack){
                 maxcounttrack=mp[word];
                 sentence=word;
