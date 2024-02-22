@@ -12,11 +12,11 @@ int main()
     char t[100];
 
     scanf("%c", &ch);
-        scanf("%s", &s);
-          getchar();
-          scanf("%[^\n]%*c", t);
+    scanf("%s", &s);
+    getchar();
+    scanf("%[^\n]%*c", t);
 
-          printf("%c\n", ch);
+    printf("%c\n", ch);
     printf("%s\n", s);
     printf("%s\n", t);
      
