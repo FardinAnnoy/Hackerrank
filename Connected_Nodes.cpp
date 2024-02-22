@@ -1,50 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
+vector<int> v[1005];
+bool vis[1005];
 
-// Function to add an edge in the graph
-void addEdge(vector<vector<int>>& graph, int u, int v) {
-    graph[u].push_back(v);
-    graph[v].push_back(u);
-}
-
-// Function to find the connected nodes of a given node
-void connectedNodes(vector<vector<int>>& graph, int node) {
-    // Check if the node is valid
-    if(node < 0 || node >= graph.size()) {
-        cout << -1 << endl;
-        return;
+int main()
+{
+    int n, e;
+    cin >> n >> e;
+    while (e--)
+    {
+        int a, b;
+        cin >> a >> b;
+        v[a].push_back(b);
+        v[b].push_back(a);
     }
+    int q;
+    cin >> q;
 
-    // Sort the adjacency list of the given node in descending order
-    sort(graph[node].begin(), graph[node].end(), greater<int>());
+    vector<int> query(q);
+    for (int i = 0; i < q; i++)
+    {
+        cin >> query[i];
 
-    // Print the adjacency list
-    for(int i: graph[node]) {
-        cout << i << " ";
-    }
-    cout << endl;
-}
+        vector<int> connected;
+        for (int val : v[query[i]])
+        {
+            connected.push_back(val);
+        }
 
-int main() {
-    int N, E;
-    cin >> N >> E;
-
-    // Create a graph with N vertices
-    vector<vector<int>> graph(N);
-
-    for(int i = 0; i < E; i++) {
-        int u, v;
-        cin >> u >> v;
-        addEdge(graph, u, v);
-    }
-
-    int Q;
-    cin >> Q;
-
-    while(Q--) {
-        int node;
-        cin >> node;
-        connectedNodes(graph, node);
+        if (connected.empty())
+        {
+            cout << -1 << endl;
+        }
+        else
+        {
+            sort(connected.begin(), connected.end(), greater<int>());
+            for (int val : connected)
+            {
+                cout << val << " ";
+            }
+            cout << endl;
+        }
     }
 
     return 0;
