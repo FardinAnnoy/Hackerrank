@@ -10,7 +10,7 @@ int n, m;
 
 bool valid(int i, int j)
 {
-    if (i < 0 || i >= n || j < 0 || j >= n)
+    if (i < 0 || i >= n || j < 0 || j >= m)
     return false;
     return true;
 }
@@ -18,7 +18,7 @@ bool valid(int i, int j)
 void dfs(int si, int sj)
 {
     if (!valid(si, sj) || vis[si][sj] || a[si][sj] == '-')
-        return;
+        return ;
     vis[si][sj] = true;
 
     for (int i = 0; i < 4; i++)
